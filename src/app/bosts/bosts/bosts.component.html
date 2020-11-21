@@ -1,0 +1,9 @@
+<p>bosts works!</p>
+<input type="text" #title (keyup.Enter)="CreatePost(title.value)">
+<ul class="list-group">
+    <li *ngFor="let bost of bosts" class="list list-group-item">
+<button class="btn btn-primary" (click)="updatePost(bost,title.value)">Update </button>
+<button class="btn btn-primary" (click)="deletePost(bost)">Delete </button>
+ {{bost.title}}
+    </li>
+</ul>

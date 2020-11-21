@@ -1,0 +1,31 @@
+<p>login.component works!</p>
+<form #f="ngForm" (ngSubmit)="Submit(f)">
+  <div class="form-group" >
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" 
+    id="exampleInputEmail1" 
+    name="email"
+    #email="ngModel"
+    ngModel
+    required
+    minlength="15"
+    maxlength="25"
+    pattern="hesien_2009@yahoo.com"
+     aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div *ngIf="email.touched && email.invalid" class="alert alert-danger"  role="alert">
+      <div *ngIf="email.errors.required">this name is required</div>
+      <div *ngIf="email.errors.minlength">this name is {{email.errors.minlength.requiredLength}}</div>
+      <div *ngIf="email.errors.pattern">this name is pattern</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button  type="submit" [disabled]="f.invalid" class="btn btn-primary">Submit</button>
+</form>
